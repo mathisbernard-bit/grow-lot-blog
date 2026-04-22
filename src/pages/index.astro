@@ -10,19 +10,18 @@ const posts = allPosts
   .filter(post => new Date(post.data.date) <= today)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
-<Base title="Blog Grow Lot — Guides fidélisation pour commerçants" description="Guides pratiques pour aider les commerçants et restaurateurs à fidéliser leurs clients, booster leurs avis Google et développer leur chiffre d'affaires.">
+<Base title="Blog Grow Lot — Guides fidélisation pour commerçants" description="Conseils pratiques pour fidéliser vos clients, booster vos avis Google et augmenter le chiffre d'affaires de votre commerce ou restaurant.">
   <div class="hero-banner">
     <h1>Faites grandir<br/><span>l'engagement</span> de vos clients 🌱</h1>
-    <p>Guides pratiques, conseils et stratégies pour booster votre fidélisation client et vos avis Google.</p>
+    <p>Guides pratiques, retours terrain et stratégies testées pour booster la fidélisation et les avis Google de votre commerce.</p>
   </div>
-
   <main>
     <div class="articles-grid">
       {posts.map(post => (
         <a href={`/blog/${post.slug}`} class="article-card">
           <span class="category-badge">{post.data.category}</span>
           <h2>{post.data.title}</h2>
-          <p>{post.data.description}</p>
+          <p class="desc">{post.data.description}</p>
           <span class="read-more">Lire l'article →</span>
           <p class="article-date">{new Date(post.data.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
         </a>
