@@ -3,6 +3,7 @@ const { title, description, date, category, author } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const logoUrl = "https://media.base44.com/images/public/69d90908f4f5dee0cdc0b7ac/7df7d4a03_Logoblanc.png";
 const signupUrl = "https://go.grow-lot.com/cenvFVu";
+const siteUrl = "https://grow-lot.com";
 ---
 <!DOCTYPE html>
 <html lang="fr">
@@ -12,10 +13,14 @@ const signupUrl = "https://go.grow-lot.com/cenvFVu";
   <title>{title} | Blog Grow Lot</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
-  <meta property="og:title" content={title} />
+  <!-- GEO / AI signals -->
+  <meta name="author" content="Grow Lot" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content={`${title} | Grow Lot`} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="article" />
   <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="Blog Grow Lot" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,15 +28,23 @@ const signupUrl = "https://go.grow-lot.com/cenvFVu";
   {date && (
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "BlogPosting",
       "headline": title,
       "description": description,
       "datePublished": date,
-      "author": { "@type": "Organization", "name": "Grow Lot" },
-      "publisher": { "@type": "Organization", "name": "Grow Lot", "url": "https://grow-lot.com" }
+      "dateModified": date,
+      "inLanguage": "fr-FR",
+      "author": { "@type": "Organization", "name": "Grow Lot", "url": "https://grow-lot.com" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Grow Lot",
+        "url": "https://grow-lot.com",
+        "logo": { "@type": "ImageObject", "url": "https://media.base44.com/images/public/69d90908f4f5dee0cdc0b7ac/7df7d4a03_Logoblanc.png" }
+      },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalURL }
     })} />
   )}
-  <style>
+  <style is:global>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --yellow: #fdd643;
@@ -39,72 +52,60 @@ const signupUrl = "https://go.grow-lot.com/cenvFVu";
       --violet: #654a98;
       --violet-light: #c299ff;
       --orange: #eb5d3b;
-      --orange-light: #f18767;
-      --white: #fffbee;
+      --white-warm: #fffbee;
       --gray: #ccc9c0;
       --dark: #1a1a1a;
     }
-
-    html, body {
-      height: 100%;
-    }
-
+    html { height: 100%; }
     body {
       font-family: 'Inter', sans-serif;
       background: #fff;
       color: var(--dark);
-      line-height: 1.7;
+      line-height: 1.75;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-
-    h1, h2, h3, h4 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-    }
+    h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 700; }
     a { color: var(--violet); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* HEADER */
+    /* ── HEADER ─────────────────────────────── */
     header {
       background: var(--violet);
-      padding: 1rem 4rem;
+      padding: 1rem 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-shrink: 0;
     }
-    .logo img {
-      height: 40px;
-      width: auto;
-    }
-    nav { display: flex; align-items: center; gap: 1rem; }
-    nav a {
+    .logo img { height: 38px; width: auto; display: block; }
+    nav { display: flex; align-items: center; gap: 1.5rem; }
+    nav > a {
       font-size: 0.9rem;
       color: rgba(255,255,255,0.8);
       font-weight: 500;
       font-family: 'Poppins', sans-serif;
     }
-    nav a:hover { color: white; text-decoration: none; }
+    nav > a:hover { color: white; text-decoration: none; }
     .cta-btn {
       background: var(--yellow) !important;
       color: var(--dark) !important;
-      padding: 0.5rem 1.2rem;
+      padding: 0.55rem 1.25rem;
       border-radius: 8px;
       font-weight: 700;
       font-size: 0.85rem;
       font-family: 'Poppins', sans-serif;
+      white-space: nowrap;
     }
     .cta-btn:hover { background: var(--yellow-light) !important; text-decoration: none !important; }
 
-    /* HERO BANNER (homepage) */
+    /* ── HERO ────────────────────────────────── */
     .hero-banner {
       background: linear-gradient(135deg, var(--violet) 0%, #8b6bb5 100%);
       color: white;
       text-align: center;
-      padding: 5rem 4rem 4rem;
-      flex-shrink: 0;
+      padding: 5rem 5% 4rem;
     }
     .hero-banner h1 {
       font-size: 2.6rem;
@@ -116,59 +117,77 @@ const signupUrl = "https://go.grow-lot.com/cenvFVu";
     .hero-banner p {
       color: rgba(255,255,255,0.85);
       font-size: 1.05rem;
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto;
     }
 
-    /* PAGE WRAPPER — pousse le footer en bas */
-    .page-wrapper {
+    /* ── MAIN ────────────────────────────────── */
+    .page-body {
       flex: 1;
       display: flex;
       flex-direction: column;
     }
-
-    /* MAIN */
     main {
       flex: 1;
-      max-width: 860px;
       width: 100%;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 3rem 4rem 5rem;
+      padding: 3rem 5% 5rem;
     }
 
-    /* ARTICLE HEADER */
-    .article-header { margin-bottom: 2.5rem; }
+    /* ── ARTICLE CARDS ───────────────────────── */
+    .articles-grid { display: grid; gap: 1.5rem; margin-top: 0.5rem; }
+    .article-card {
+      border: 2px solid #f0f0f0;
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      transition: all 0.2s;
+      display: block;
+      color: inherit;
+    }
+    .article-card:hover {
+      border-color: var(--yellow);
+      box-shadow: 0 6px 28px rgba(253,214,67,0.18);
+      text-decoration: none;
+    }
+    .article-card h2 { font-size: 1.2rem; margin: 0.6rem 0 0.5rem; color: var(--dark); line-height: 1.3; }
+    .article-card p.desc { color: #666; font-size: 0.92rem; margin-bottom: 1rem; }
+    .read-more { font-size: 0.85rem; font-weight: 700; color: var(--violet); font-family: 'Poppins', sans-serif; }
+    .article-date { font-size: 0.78rem; color: #aaa; margin-top: 0.6rem; }
+
+    /* ── BADGE ───────────────────────────────── */
     .category-badge {
       display: inline-block;
       background: var(--yellow);
       color: var(--dark);
-      font-size: 0.72rem;
+      font-size: 0.70rem;
       font-weight: 700;
-      padding: 0.3rem 0.85rem;
+      padding: 0.28rem 0.8rem;
       border-radius: 20px;
-      margin-bottom: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       font-family: 'Poppins', sans-serif;
     }
-    h1 { font-size: 2rem; line-height: 1.25; margin-bottom: 1rem; color: var(--dark); }
-    .article-meta { font-size: 0.85rem; color: #888; font-family: 'Inter', sans-serif; }
 
-    /* CONTENT */
+    /* ── ARTICLE PAGE ────────────────────────── */
+    .article-header { margin-bottom: 2.5rem; border-bottom: 2px solid #f5f5f5; padding-bottom: 1.5rem; }
+    .article-header h1 { font-size: 2rem; line-height: 1.25; margin: 0.75rem 0 0.75rem; }
+    .article-meta { font-size: 0.85rem; color: #888; }
+
     .content h2 {
-      font-size: 1.45rem;
-      font-weight: 700;
+      font-size: 1.4rem; font-weight: 700;
       margin: 2.5rem 0 0.75rem;
       color: var(--violet);
-      padding-bottom: 0.4rem;
+      padding-bottom: 0.35rem;
       border-bottom: 2px solid var(--yellow);
       display: inline-block;
     }
-    .content h3 { font-size: 1.1rem; font-weight: 600; margin: 1.75rem 0 0.5rem; color: var(--dark); }
-    .content p { margin-bottom: 1.2rem; color: #333; font-size: 1rem; }
-    .content ul, .content ol { margin: 0.5rem 0 1.3rem 1.5rem; }
+    .content h3 { font-size: 1.05rem; font-weight: 600; margin: 1.75rem 0 0.5rem; color: var(--dark); }
+    .content p { margin-bottom: 1.25rem; color: #333; }
+    .content ul, .content ol { margin: 0.5rem 0 1.25rem 1.5rem; }
     .content li { margin-bottom: 0.5rem; color: #333; }
     .content strong { color: var(--dark); }
+    .content a { color: var(--violet); font-weight: 500; }
     .content blockquote {
       border-left: 4px solid var(--yellow);
       padding: 0.75rem 1.25rem;
@@ -178,12 +197,13 @@ const signupUrl = "https://go.grow-lot.com/cenvFVu";
       font-style: italic;
       color: #555;
     }
+    .content hr { border: none; border-top: 1px solid #f0f0f0; margin: 2rem 0; }
 
-    /* CTA BOX */
+    /* ── CTA BOX ─────────────────────────────── */
     .cta-box {
       background: linear-gradient(135deg, var(--violet) 0%, #8b6bb5 100%);
       color: white;
-      padding: 2.5rem 2rem;
+      padding: 2.5rem 2.5rem;
       border-radius: 16px;
       text-align: center;
       margin: 3.5rem 0 1rem;
@@ -192,12 +212,9 @@ const signupUrl = "https://go.grow-lot.com/cenvFVu";
     }
     .cta-box::before {
       content: '';
-      position: absolute;
-      top: -40px; right: -40px;
-      width: 150px; height: 150px;
-      background: var(--yellow);
-      border-radius: 50%;
-      opacity: 0.15;
+      position: absolute; top: -50px; right: -50px;
+      width: 160px; height: 160px;
+      background: var(--yellow); border-radius: 50%; opacity: 0.12;
     }
     .cta-box h3 { font-size: 1.4rem; margin-bottom: 0.75rem; color: white; }
     .cta-box p { color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; font-size: 0.95rem; }
@@ -213,51 +230,30 @@ const signupUrl = "https://go.grow-lot.com/cenvFVu";
     }
     .cta-box a:hover { text-decoration: none; background: var(--yellow-light) !important; }
 
-    /* ARTICLES GRID */
-    .articles-grid { display: grid; gap: 1.5rem; margin-top: 2rem; }
-    .article-card {
-      border: 2px solid #f5f5f5;
-      border-radius: 14px;
-      padding: 1.75rem;
-      transition: all 0.2s;
-      display: block;
-      color: inherit;
-    }
-    .article-card:hover {
-      border-color: var(--yellow);
-      box-shadow: 0 4px 24px rgba(253,214,67,0.2);
-      text-decoration: none;
-    }
-    .article-card h2 { font-size: 1.2rem; margin: 0.6rem 0 0.5rem; color: var(--dark); }
-    .article-card p { color: #666; font-size: 0.92rem; margin-bottom: 1rem; }
-    .article-card .read-more { font-size: 0.85rem; font-weight: 700; color: var(--violet); font-family: 'Poppins', sans-serif; }
-    .article-date { font-size: 0.78rem; color: #aaa; margin-top: 0.6rem; }
-
-    /* FOOTER — collé en bas */
+    /* ── FOOTER ──────────────────────────────── */
     footer {
       background: var(--dark);
-      color: rgba(255,255,255,0.6);
-      padding: 1.75rem 4rem;
+      color: rgba(255,255,255,0.55);
+      padding: 1.75rem 5%;
       text-align: center;
       font-size: 0.82rem;
       flex-shrink: 0;
     }
     footer a { color: var(--yellow); }
 
-    @media (max-width: 768px) {
-      header { padding: 1rem 1.5rem; }
-      footer { padding: 1.5rem; }
-      main { padding: 2rem 1.5rem 4rem; }
-      .hero-banner { padding: 3rem 1.5rem; }
-      .hero-banner h1 { font-size: 1.8rem; }
-      h1 { font-size: 1.6rem; }
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 640px) {
+      .hero-banner h1 { font-size: 1.75rem; }
+      .article-header h1 { font-size: 1.5rem; }
+      header { padding: 1rem 4%; }
+      main { padding: 2rem 4% 4rem; }
     }
   </style>
 </head>
 <body>
   <header>
     <a href="/" class="logo">
-      <img src={logoUrl} alt="Grow Lot" />
+      <img src={logoUrl} alt="Grow Lot — fidélisation commerçants" />
     </a>
     <nav>
       <a href="/">Blog</a>
@@ -265,13 +261,13 @@ const signupUrl = "https://go.grow-lot.com/cenvFVu";
     </nav>
   </header>
 
-  <div class="page-wrapper">
+  <div class="page-body">
     <slot />
   </div>
 
   <footer>
-    <p>© {new Date().getFullYear()} <a href="https://grow-lot.com">Grow Lot</a> — Faites grandir l'engagement de vos clients.</p>
-    <p style="margin-top:0.5rem">Certains liens peuvent être affiliés. Contenu rédigé par l'équipe Grow Lot.</p>
+    <p>© {new Date().getFullYear()} <a href={siteUrl}>Grow Lot</a> — La solution de fidélisation pour les commerçants qui veulent grandir.</p>
+    <p style="margin-top:0.4rem">Contenu rédigé par l'équipe Grow Lot. Certains liens peuvent être affiliés.</p>
   </footer>
 </body>
 </html>
