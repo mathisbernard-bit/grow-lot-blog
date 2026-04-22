@@ -4,6 +4,15 @@ description: "Méthode concrète pour générer des avis Google réguliers, filt
 date: "2026-04-22"
 category: "Avis Google"
 author: "Équipe Grow Lot"
+faqs:
+  - q: "Comment obtenir des avis Google rapidement ?"
+    a: "La méthode la plus efficace est de demander un avis juste après un moment de satisfaction, via un QR code ou un SMS automatique avec lien direct vers votre fiche Google. Les outils comme Grow Lot permettent d'atteindre 50% de taux de conversion."
+  - q: "Peut-on filtrer les avis négatifs avant qu'ils arrivent sur Google ?"
+    a: "Oui, c'est légal et recommandé. Vous posez d'abord une question de satisfaction interne. Si le client est satisfait, il est redirigé vers Google. Sinon, son feedback reste privé et vous pouvez résoudre le problème."
+  - q: "Combien d'avis Google faut-il pour bien se positionner localement ?"
+    a: "Il n'y a pas de seuil fixe, mais la régularité compte plus que le volume. 5 avis par semaine toute l'année valent mieux que 50 en janvier puis plus rien. Google récompense les commerces qui reçoivent des avis récents en continu."
+  - q: "Faut-il répondre à tous les avis Google ?"
+    a: "Oui, répondre aux avis positifs comme négatifs est un signal fort pour Google et rassure les futurs clients. Pour les avis négatifs : remerciez, excusez-vous sans vous justifier, et proposez une solution concrète."
 ---
 
 Les avis Google, c'est devenu la vitrine numérique de votre commerce. 87% des clients les consultent avant de pousser la porte. Pourtant, la plupart des commerçants ne savent pas comment en obtenir régulièrement — sans paraître désespérés ni risquer des avis négatifs.
