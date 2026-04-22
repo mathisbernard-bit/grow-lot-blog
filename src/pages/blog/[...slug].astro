@@ -30,16 +30,16 @@ const { Content } = await post.render();
         <span class="category-badge">{post.data.category}</span>
         <h1>{post.data.title}</h1>
         <p class="article-meta">
-          Par {post.data.author} · {new Date(post.data.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+          Par {post.data.author} &middot; {new Date(post.data.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
         </p>
       </div>
       <div class="content">
         <Content />
       </div>
       <div class="cta-box">
-        <h3>Prêt à fidéliser vos clients ?</h3>
-        <p>Grow Lot aide les commerçants à obtenir plus d'avis Google et à fidéliser leurs clients avec la roue de la fortune.</p>
-        <a href="https://go.grow-lot.com/cenvFVu" target="_blank">Essayer Grow Lot gratuitement →</a>
+        <h3>Prêt à fidéliser vos clients avec Grow Lot ?</h3>
+        <p>Roue de la fortune, collecte d'avis automatisée, filtre anti-avis négatifs — tout en un, à partir de 49€/mois.</p>
+        <a href="https://go.grow-lot.com/cenvFVu" target="_blank">Démarrer gratuitement →</a>
       </div>
     </article>
   </main>
