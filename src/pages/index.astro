@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const today = new Date();
+today.setHours(23, 59, 59, 999);
+
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter(post => new Date(post.data.date) <= today)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+<Base title="Blog Grow Lot — Guides fidélisation pour commerçants" description="Guides pratiques pour aider les commerçants et restaurateurs à fidéliser leurs clients, booster leurs avis Google et développer leur chiffre d'affaires.">
+  <div class="hero">
+    <h1>Le blog des commerçants qui fidélisent mieux 🌱</h1>
+    <p>Guides pratiques, conseils et stratégies pour booster votre fidélisation client et vos avis Google.</p>
+  </div>
+
+  <div class="articles-grid">
+    {posts.map(post => (
+      <a href={`/blog/${post.slug}`} class="article-card" style="text-decoration:none;color:inherit;">
+        <span class="category-badge">{post.data.category}</span>
+        <h2>{post.data.title}</h2>
+        <p>{post.data.description}</p>
+        <span class="read-more">Lire l'article →</span>
+        <p class="article-date">{new Date(post.data.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+      </a>
+    ))}
+  </div>
+</Base>
