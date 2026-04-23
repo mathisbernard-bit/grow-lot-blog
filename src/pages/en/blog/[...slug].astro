@@ -1,0 +1,69 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const today = new Date();
+  today.setHours(23, 59, 59, 999);
+  const posts = await getCollection('blog_en');
+  return posts
+    .filter(post => new Date(post.data.date) <= today)
+    .map(post => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const faqs = post.data.faqs || [];
+---
+<Base
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  category={post.data.category}
+  author={post.data.author}
+  faqs={faqs}
+  lang="en"
+>
+  <main>
+    <article>
+      <div class="article-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/en">Grow Lot Blog</a>
+          <span>›</span>
+          <span class="category-badge">{post.data.category}</span>
+          <span>›</span>
+          <span>{post.data.title}</span>
+        </nav>
+        <h1>{post.data.title}</h1>
+        <p class="article-meta">
+          By {post.data.author} &middot; {new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+        </p>
+      </div>
+
+      <div class="content">
+        <Content />
+      </div>
+
+      {faqs.length > 0 && (
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+          {faqs.map((faq: {q: string, a: string}) => (
+            <div class="faq-item">
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div class="cta-box">
+        <h3>Ready to grow customer loyalty with Grow Lot?</h3>
+        <p>Lucky wheel, automated Google review collection, negative review filter — all in one, from €49/month.</p>
+        <a href="https://go.grow-lot.com/cenvFVu" target="_blank">Start for free →</a>
+      </div>
+    </article>
+  </main>
+</Base>
