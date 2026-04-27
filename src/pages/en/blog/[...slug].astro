@@ -8,10 +8,7 @@ export async function getStaticPaths() {
   const posts = await getCollection('blog_en');
   return posts
     .filter(post => new Date(post.data.date) <= today)
-    .map(post => ({
-      params: { slug: post.slug },
-      props: { post },
-    }));
+    .map(post => ({ params: { slug: post.slug }, props: { post } }));
 }
 
 const { post } = Astro.props;
@@ -29,26 +26,26 @@ const faqs = post.data.faqs || [];
 >
   <main>
     <article>
-      <div class="article-header">
+      <header class="article-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="/en">Grow Lot Blog</a>
-          <span>›</span>
-          <span class="category-badge">{post.data.category}</span>
-          <span>›</span>
+          <span class="breadcrumb-sep">›</span>
+          <span class="badge">{post.data.category}</span>
+          <span class="breadcrumb-sep">›</span>
           <span>{post.data.title}</span>
         </nav>
         <h1>{post.data.title}</h1>
         <p class="article-meta">
           By {post.data.author} &middot; {new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
         </p>
-      </div>
+      </header>
 
       <div class="content">
         <Content />
       </div>
 
       {faqs.length > 0 && (
-        <div class="faq-section">
+        <section class="faq-section" aria-label="Frequently Asked Questions">
           <h2>Frequently Asked Questions</h2>
           {faqs.map((faq: {q: string, a: string}) => (
             <div class="faq-item">
@@ -56,13 +53,13 @@ const faqs = post.data.faqs || [];
               <p>{faq.a}</p>
             </div>
           ))}
-        </div>
+        </section>
       )}
 
       <div class="cta-box">
         <h3>Ready to grow customer loyalty with Grow Lot?</h3>
         <p>Lucky wheel, automated Google review collection, negative review filter — all in one, from €49/month.</p>
-        <a href="https://go.grow-lot.com/cenvFVu" target="_blank">Start for free →</a>
+        <a href="https://go.grow-lot.com/cenvFVu" target="_blank" rel="noopener">Start for free →</a>
       </div>
     </article>
   </main>
