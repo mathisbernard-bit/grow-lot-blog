@@ -12,22 +12,26 @@ const posts = allPosts
 ---
 <Base
   title="Grow Lot Blog — Loyalty & Google Reviews Guides for Local Businesses"
-  description="Practical guides to help restaurant owners and local retailers boost customer loyalty, collect Google reviews, and grow their revenue."
+  description="Practical guides to help restaurant owners and local retailers boost customer loyalty, collect Google reviews, and grow revenue."
   lang="en"
 >
-  <div class="hero-banner">
-    <h1>Grow your customers'<br/><span>engagement</span> 🌱</h1>
+  <div class="hero">
+    <h1>Grow your customers'<br/><em>engagement</em> 🌱</h1>
     <p>Practical guides, real-world tips and proven strategies to boost loyalty and Google reviews for your business.</p>
   </div>
   <main>
-    <div class="articles-grid">
+    <div class="posts-grid">
       {posts.map(post => (
-        <a href={`/en/blog/${post.slug}`} class="article-card">
-          <span class="category-badge">{post.data.category}</span>
+        <a href={`/en/blog/${post.slug}`} class="post-card">
+          <div class="post-card-top">
+            <span class="badge">{post.data.category}</span>
+          </div>
           <h2>{post.data.title}</h2>
-          <p class="desc">{post.data.description}</p>
-          <span class="read-more">Read article →</span>
-          <p class="article-date">{new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+          <p class="excerpt">{post.data.description}</p>
+          <div class="post-card-footer">
+            <span class="read-link">Read article →</span>
+            <span class="post-date">{new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+          </div>
         </a>
       ))}
     </div>
