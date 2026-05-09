@@ -63,7 +63,7 @@ Grow Lot intègre tout ça dans un seul outil pensé pour les commerces physique
 
 À 49€/mois (offre de lancement), c'est rentabilisé dès le premier client réactivé.
 
-[Voir comment ça marche →](https://taap.it/RYNFv38)
+[Voir comment ça marche →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=decouvrir)
 
 ---
 
