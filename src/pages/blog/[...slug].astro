@@ -7,12 +7,16 @@ export async function getStaticPaths() {
   today.setHours(23, 59, 59, 999);
   const posts = await getCollection('blog');
   return posts
-    .filter(p => p.data.lang === 'fr' && new Date(p.data.date) <= today)
-    .map(post => ({ params: { slug: post.slug }, props: { post } }));
+    .filter(post => new Date(post.data.date) <= today)
+    .map(post => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
 }
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+const faqs = post.data.faqs || [];
 ---
 <Base
   title={post.data.title}
@@ -20,29 +24,44 @@ const { Content } = await post.render();
   date={post.data.date}
   category={post.data.category}
   author={post.data.author}
-  lang="fr"
+  faqs={faqs}
 >
   <main>
     <article>
-      <header class="article-header">
-        <nav class="breadcrumb">
-          <a href="/">Accueil</a>
-          <span class="breadcrumb-sep">›</span>
+      <div class="article-header">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="/">Blog Grow Lot</a>
+          <span>›</span>
+          <span class="category-badge">{post.data.category}</span>
+          <span>›</span>
           <span>{post.data.title}</span>
         </nav>
-        <span class="category-badge">{post.data.category}</span>
         <h1>{post.data.title}</h1>
         <p class="article-meta">
-          Par {post.data.author} · {new Date(post.data.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+          Par {post.data.author} &middot; {new Date(post.data.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
         </p>
-      </header>
+      </div>
+
       <div class="content">
         <Content />
       </div>
+
+      {faqs.length > 0 && (
+        <div class="faq-section">
+          <h2>Questions fréquentes</h2>
+          {faqs.map((faq: {q: string, a: string}) => (
+            <div class="faq-item">
+              <h3>{faq.q}</h3>
+              <p>{faq.a}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
       <div class="cta-box">
-        <h3>Prêt à tester Grow Lot ?</h3>
-        <p>Roue de la fortune, filtre anti-avis négatifs, relances marketing — à partir de 49€/mois à vie.</p>
-        <a href="https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=article-cta" target="_blank">Découvrir Grow Lot →</a>
+        <h3>Prêt à fidéliser vos clients avec Grow Lot ?</h3>
+        <p>Roue de la fortune, collecte d'avis automatisée, filtre anti-avis négatifs — tout en un, à partir de 49€/mois.</p>
+        <a href="https://go.grow-lot.com/cenvFVu" target="_blank">Démarrer gratuitement →</a>
       </div>
     </article>
   </main>
