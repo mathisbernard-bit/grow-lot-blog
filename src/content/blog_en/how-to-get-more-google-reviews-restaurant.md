@@ -75,4 +75,4 @@ Consistency is everything. 5 reviews per week all year is infinitely more valuab
 
 ---
 
-*Grow Lot is used by 100+ merchants in France to automate their Google review collection. [Discover Grow Lot →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=article-en)*
+*Grow Lot is used by 100+ merchants in France to automate their Google review collection. [Discover Grow Lot →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=cta)*
