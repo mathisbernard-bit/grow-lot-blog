@@ -4,7 +4,6 @@ description: "Découvrez les 5 piliers d'une stratégie de fidélisation efficac
 date: "2026-05-02"
 category: "Fidélisation"
 author: "Équipe Grow Lot"
-lang: "fr"
 ---
 
 On parle beaucoup de fidélisation en 2026, mais la plupart des commerçants se trompent sur ce qui marche vraiment. Ils mettent en place des gadgets sans stratégie — une roue de la fortune ici, un email de relance là — et s'étonnent que ça ne change rien.
@@ -157,7 +156,7 @@ Vous n'avez pas besoin de faire les 5 parfaitement. Mais il faut au moins 3 qui 
 
 Plusieurs outils peuvent accélérer la mise en place de ces 5 piliers. Parmi les plus populaires auprès des restaurateurs français :
 
-**Pour les piliers 1, 3, et 4 ensemble** — Grow Lot : outil de fidélisation avec roue de la fortune, capture de données en caisse, email/SMS automatisés, et collecte d'avis filtrée. [Essayer Grow Lot →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=decouvrir)
+**Pour les piliers 1, 3, et 4 ensemble** — Grow Lot : outil de fidélisation avec roue de la fortune, capture de données en caisse, email/SMS automatisés, et collecte d'avis filtrée. [Essayer Grow Lot →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=cta)
 
 **Pour les avis uniquement** — HeyPongo ou Up Review : bons pour la collecte d'avis mais moins complets pour la fidélisation générale.
 
