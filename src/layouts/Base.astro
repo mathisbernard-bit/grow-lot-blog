@@ -1,376 +1,629 @@
 ---
-const { title, description, date, category, author, lang = 'fr', isHome = false, heroTitle = '', heroSub = '' } = Astro.props;
+const { title, description, date, category, author, faqs, lang = 'fr' } = Astro.props;
+const isEN = lang === 'en';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const isEn = lang === 'en';
+const logoUrl = "https://media.base44.com/images/public/69d90908f4f5dee0cdc0b7ac/7df7d4a03_Logoblanc.png";
+const signupUrl = "https://go.grow-lot.com/cenvFVu";
+const siteUrl = "https://grow-lot.com";
+const blogUrl = "https://blog.grow-lot.com";
+const isArticle = !!date;
+
+const i18n = {
+  blogLabel: isEN ? "Grow Lot Blog" : "Blog Grow Lot",
+  blogLink: isEN ? "/en" : "/",
+  ctaLabel: isEN ? "Try for free →" : "Essayer gratuitement →",
+  footerTagline: isEN
+    ? "The loyalty solution for local businesses."
+    : "La solution de fidélisation pour les commerçants.",
+  footerDisclaimer: isEN
+    ? "Content written by the Grow Lot team. Some links may be affiliated."
+    : "Contenu rédigé par l'équipe Grow Lot. Certains liens peuvent être affiliés.",
+  ctaBoxTitle: isEN ? "Ready to grow customer loyalty?" : "Prêt à fidéliser vos clients avec Grow Lot ?",
+  ctaBoxDesc: isEN
+    ? "Lucky wheel, automated Google review collection, negative review filter — all in one, from €49/month."
+    : "Roue de la fortune, collecte d'avis automatisée, filtre anti-avis négatifs — tout en un, à partir de 49€/mois.",
+  ctaBoxBtn: isEN ? "Start for free →" : "Démarrer gratuitement →",
+  faqTitle: isEN ? "Frequently Asked Questions" : "Questions fréquentes",
+  altLangLabel: isEN ? "🇫🇷 Français" : "🇬🇧 English",
+  altLangHref: isEN ? "/" : "/en",
+  breadcrumbHome: isEN ? "Grow Lot Blog" : "Blog Grow Lot",
+  by: isEN ? "By" : "Par",
+};
+
+// ── Schemas JSON-LD ──────────────────────────────────────────────────────────
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": i18n.blogLabel,
+  "url": isEN ? `${blogUrl}/en` : blogUrl,
+  "description": isEN
+    ? "Practical guides on customer loyalty and Google reviews for local businesses."
+    : "Guides pratiques de fidélisation client et avis Google pour commerçants et restaurateurs en France.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Grow Lot",
+    "url": siteUrl,
+    "logo": { "@type": "ImageObject", "url": logoUrl }
+  },
+  "inLanguage": isEN ? "en" : "fr-FR"
+};
+
+const articleSchema = isArticle ? {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "datePublished": date,
+  "dateModified": date,
+  "inLanguage": isEN ? "en" : "fr-FR",
+  "url": canonicalURL.toString(),
+  "author": { "@type": "Organization", "name": "Grow Lot", "url": siteUrl },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Grow Lot",
+    "url": siteUrl,
+    "logo": { "@type": "ImageObject", "url": logoUrl }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalURL.toString() },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".article-header h1", ".content > p:first-of-type"]
+  }
+} : null;
+
+const faqSchema = (faqs && faqs.length > 0) ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq: {q: string, a: string}) => ({
+    "@type": "Question",
+    "name": faq.q,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
+  }))
+} : null;
+
+const breadcrumbSchema = isArticle ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": i18n.breadcrumbHome, "item": isEN ? `${blogUrl}/en` : blogUrl },
+    { "@type": "ListItem", "position": 2, "name": title, "item": canonicalURL.toString() }
+  ]
+} : null;
 ---
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={isEN ? "en" : "fr"}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} | Blog Grow Lot</title>
+  <title>{title} | {i18n.blogLabel}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalURL} />
-  {isEn
-    ? <link rel="alternate" hreflang="fr" href={`https://blog.grow-lot.com${Astro.url.pathname.replace('/en', '')}`} />
-    : <link rel="alternate" hreflang="en" href={`https://blog.grow-lot.com/en${Astro.url.pathname}`} />
+  <meta name="revisit-after" content="7 days" />
+  <meta name="geo.region" content="FR" />
+  <meta name="language" content={isEN ? "en" : "fr"} />
+  <meta name="ai-content-declaration" content="human-written" />
+  <meta name="author" content="Grow Lot" />
+  <!-- hreflang -->
+  {isEN
+    ? <link rel="alternate" hreflang="fr" href={canonicalURL.toString().replace('/en/blog/', '/blog/').replace('/en', '/')} />
+    : <link rel="alternate" hreflang="en" href={`${blogUrl}/en${Astro.url.pathname}`} />
   }
-  {date && (
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": title,
-      "description": description,
-      "datePublished": date,
-      "inLanguage": lang,
-      "author": { "@type": "Organization", "name": "Grow Lot", "url": "https://grow-lot.com" },
-      "publisher": { "@type": "Organization", "name": "Grow Lot", "url": "https://grow-lot.com" }
-    })} />
-  )}
+  <link rel="alternate" hreflang="x-default" href={blogUrl} />
+  <!-- Open Graph -->
+  <meta property="og:title" content={`${title} | Grow Lot`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={isArticle ? "article" : "website"} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="Grow Lot Blog" />
+  <meta property="og:locale" content={isEN ? "en_US" : "fr_FR"} />
+  {isArticle && date && <meta property="article:published_time" content={new Date(date).toISOString()} />}
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
-  <style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Schemas -->
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  {isArticle && articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+  {isArticle && breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+  {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+
+  <style is:global>
+    /* ── RESET & TOKENS ─────────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --purple: #7c3aed;
-      --purple-dark: #6d28d9;
-      --purple-light: #f0eeff;
-      --dark: #0f172a;
-      --gray: #64748b;
-      --border: #e8e4f9;
-      --white: #ffffff;
-      --radius: 14px;
-      --shadow: 0 4px 24px rgba(124,58,237,0.10);
+      --gl-violet:      #654a98;
+      --gl-violet-dark: #4e3875;
+      --gl-violet-pale: #f0ebff;
+      --gl-yellow:      #fdd643;
+      --gl-yellow-dark: #e8c200;
+      --gl-dark:        #111827;
+      --gl-gray:        #6b7280;
+      --gl-gray-light:  #f3f4f6;
+      --gl-border:      #e5e7eb;
+      --gl-white:       #ffffff;
+      --radius-sm:      6px;
+      --radius-md:      12px;
+      --radius-lg:      18px;
+      --shadow-sm:      0 1px 3px rgba(0,0,0,.08);
+      --shadow-md:      0 4px 16px rgba(0,0,0,.10);
+      --shadow-hover:   0 8px 28px rgba(101,74,152,.18);
+      --max-w:          860px;
+      --font-sans:      'Inter', system-ui, sans-serif;
+      --font-display:   'Poppins', system-ui, sans-serif;
     }
+
+    html { height: 100%; scroll-behavior: smooth; }
+
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: #fafafa;
-      color: var(--dark);
+      font-family: var(--font-sans);
+      font-size: 1rem;
       line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
+      color: var(--gl-dark);
+      background: var(--gl-white);
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--purple); text-decoration: none; }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--gl-dark);
+    }
+
+    a { color: var(--gl-violet); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* ── HEADER ── */
+    img { max-width: 100%; display: block; }
+
+    /* ── HEADER ──────────────────────────────────────────────────────────────── */
     .site-header {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 0 5%;
-      height: 60px;
+      background: var(--gl-violet);
+      padding: 0.875rem 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
+      flex-shrink: 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 1px 6px rgba(124,58,237,0.06);
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
     }
-    .logo {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--purple);
+
+    .header-left {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      text-decoration: none !important;
+      gap: 1rem;
     }
-    .logo span { color: var(--dark); }
-    .header-nav { display: flex; align-items: center; gap: 0.4rem; }
-    .nav-link {
+
+    .logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .lang-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+      color: rgba(255,255,255,.75);
+      border: 1px solid rgba(255,255,255,.3);
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      transition: all .2s;
+    }
+    .lang-pill:hover {
+      color: white;
+      border-color: white;
+      background: rgba(255,255,255,.1);
+      text-decoration: none;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .header-nav > a:not(.btn-cta) {
       font-size: 0.875rem;
       font-weight: 500;
-      color: var(--gray);
-      padding: 0.35rem 0.75rem;
-      border-radius: 8px;
-      transition: color .15s, background .15s;
+      font-family: var(--font-display);
+      color: rgba(255,255,255,.8);
     }
-    .nav-link:hover { color: var(--purple); background: var(--purple-light); text-decoration: none; }
-    .lang-btn {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--gray);
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      padding: 0.3rem 0.65rem;
-      transition: border-color .15s, color .15s;
+    .header-nav > a:not(.btn-cta):hover {
+      color: white;
+      text-decoration: none;
     }
-    .lang-btn:hover { border-color: var(--purple); color: var(--purple); text-decoration: none; }
-    .cta-header {
-      background: var(--purple);
-      color: var(--white) !important;
-      font-family: 'Poppins', sans-serif;
+
+    .btn-cta {
+      background: var(--gl-yellow);
+      color: var(--gl-dark) !important;
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 0.82rem;
-      padding: 0.45rem 1.1rem;
-      border-radius: 8px;
-      transition: background .15s;
-      text-decoration: none !important;
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      transition: background .2s, transform .15s;
     }
-    .cta-header:hover { background: var(--purple-dark); }
+    .btn-cta:hover {
+      background: var(--gl-yellow-dark);
+      text-decoration: none !important;
+      transform: translateY(-1px);
+    }
 
-    /* ── HERO ── */
+    /* ── PAGE BODY ───────────────────────────────────────────────────────────── */
+    .page-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HERO ────────────────────────────────────────────────────────────────── */
     .hero {
-      background: linear-gradient(135deg, #1a0533 0%, #2d1060 100%);
-      padding: 5rem 5% 4rem;
+      background: linear-gradient(140deg, var(--gl-violet-dark) 0%, var(--gl-violet) 60%, #8b6bb5 100%);
+      padding: 4.5rem 5% 3.5rem;
       text-align: center;
     }
-    .hero-eyebrow {
-      display: inline-block;
-      background: rgba(196,181,253,.15);
-      color: #c4b5fd;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 0.3rem 1rem;
-      border-radius: 20px;
-      border: 1px solid rgba(196,181,253,.2);
-      margin-bottom: 1.25rem;
-      font-family: 'Poppins', sans-serif;
-    }
+
     .hero h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
       font-weight: 800;
-      color: var(--white);
-      line-height: 1.2;
-      letter-spacing: -0.03em;
+      color: white;
       margin-bottom: 1rem;
+      letter-spacing: -0.02em;
     }
+
     .hero h1 em {
       font-style: normal;
-      background: linear-gradient(90deg, #c4b5fd 0%, #a78bfa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: var(--gl-yellow);
     }
+
     .hero p {
-      color: rgba(255,255,255,.55);
-      font-size: 1rem;
-      max-width: 460px;
+      color: rgba(255,255,255,.82);
+      font-size: 1.05rem;
+      max-width: 520px;
       margin: 0 auto;
     }
 
-    /* ── MAIN ── */
+    /* ── MAIN ────────────────────────────────────────────────────────────────── */
     main {
       flex: 1;
-      max-width: 780px;
-      margin: 0 auto;
       width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
       padding: 3rem 5% 5rem;
     }
 
-    /* ── SECTION HEADER ── */
-    .section-header {
+    /* ── ARTICLE CARDS (homepage) ────────────────────────────────────────────── */
+    .posts-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .post-card {
+      display: block;
+      color: inherit;
+      background: var(--gl-white);
+      border: 1.5px solid var(--gl-border);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 2rem;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .post-card:hover {
+      border-color: var(--gl-yellow);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .post-card-top {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.65rem;
     }
-    .section-header h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.95rem;
+
+    .badge {
+      display: inline-block;
+      background: var(--gl-yellow);
+      color: var(--gl-dark);
+      font-family: var(--font-display);
+      font-size: 0.68rem;
       font-weight: 700;
-      color: var(--dark);
+      padding: 0.22rem 0.7rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
       white-space: nowrap;
     }
-    .section-line { flex: 1; height: 1px; background: var(--border); }
-    .section-count { font-size: 0.72rem; color: #94a3b8; white-space: nowrap; }
 
-    /* ── CARDS ── */
-    .articles-grid { display: grid; gap: 1rem; }
-    .article-card {
-      display: block;
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.6rem 1.75rem;
-      text-decoration: none !important;
-      color: inherit !important;
-      transition: border-color .2s, box-shadow .2s, transform .15s;
+    .post-card h2 {
+      font-size: 1.1rem;
+      color: var(--gl-dark);
+      margin-bottom: 0.45rem;
     }
-    .article-card:hover {
-      border-color: var(--purple);
-      box-shadow: var(--shadow);
-      transform: translateY(-2px);
+
+    .post-card .excerpt {
+      color: var(--gl-gray);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
     }
-    .card-top {
+
+    .post-card-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 0.6rem;
-      gap: 0.5rem;
     }
-    .category-badge {
-      display: inline-block;
-      background: var(--purple-light);
-      color: var(--purple);
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.67rem;
-      font-weight: 700;
-      padding: 0.2rem 0.7rem;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      white-space: nowrap;
-    }
-    .article-date { font-size: 0.72rem; color: #94a3b8; white-space: nowrap; }
-    .article-card h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--dark);
-      line-height: 1.3;
-      margin-bottom: 0.5rem;
-    }
-    .article-card p { font-size: 0.875rem; color: var(--gray); margin-bottom: 1rem; line-height: 1.6; }
-    .card-footer { display: flex; align-items: center; }
-    .read-more { font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--purple); }
 
-    /* ── ARTICLE ── */
+    .read-link {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gl-violet);
+    }
+
+    .post-date {
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    /* ── ARTICLE PAGE ────────────────────────────────────────────────────────── */
     .article-header {
       margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 1.75rem;
+      border-bottom: 2px solid var(--gl-border);
     }
+
     .breadcrumb {
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.76rem;
-      color: #94a3b8;
-      margin-bottom: 1rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 1.25rem;
       flex-wrap: wrap;
     }
-    .breadcrumb a { color: var(--purple); }
-    .breadcrumb span { color: #cbd5e1; }
-    .article-header h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: clamp(1.5rem, 3.5vw, 2.1rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.2;
-      margin: 0.6rem 0 0.75rem;
-    }
-    .article-meta { font-size: 0.78rem; color: #94a3b8; }
+    .breadcrumb a { color: var(--gl-violet); }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: #d1d5db; }
 
-    /* ── CONTENT ── */
+    .article-header h1 {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0.75rem 0;
+    }
+
+    .article-meta {
+      font-size: 0.82rem;
+      color: #9ca3af;
+    }
+
+    /* ── ARTICLE CONTENT ─────────────────────────────────────────────────────── */
+    .content {
+      max-width: 100%;
+    }
+
     .content h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 700;
-      margin: 2.5rem 0 0.75rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--purple-light);
-      color: var(--dark);
+      color: var(--gl-violet);
+      margin: 2.75rem 0 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2.5px solid var(--gl-yellow);
+      display: inline-block;
     }
+
     .content h3 {
-      font-family: 'Poppins', sans-serif;
       font-size: 1.05rem;
-      font-weight: 700;
+      font-weight: 600;
+      color: var(--gl-dark);
       margin: 1.75rem 0 0.5rem;
-      color: var(--dark);
     }
-    .content p { margin-bottom: 1.2rem; color: #334155; font-size: 0.96rem; }
-    .content ul, .content ol { margin: 0.25rem 0 1.2rem 1.4rem; }
-    .content li { margin-bottom: 0.4rem; color: #334155; font-size: 0.96rem; }
-    .content strong { color: var(--dark); font-weight: 600; }
-    .content a { color: var(--purple); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
-    .content a:hover { color: var(--purple-dark); }
+
+    .content p {
+      margin-bottom: 1.3rem;
+      color: #374151;
+      font-size: 1rem;
+    }
+
+    .content ul, .content ol {
+      margin: 0.25rem 0 1.3rem 1.5rem;
+    }
+    .content li {
+      margin-bottom: 0.45rem;
+      color: #374151;
+    }
+
+    .content strong { color: var(--gl-dark); font-weight: 600; }
+
+    .content a {
+      color: var(--gl-violet);
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .content a:hover { color: var(--gl-violet-dark); }
+
     .content blockquote {
-      border-left: 4px solid var(--purple);
-      background: var(--purple-light);
-      border-radius: 0 8px 8px 0;
+      border-left: 4px solid var(--gl-yellow);
+      background: #fffdf0;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       padding: 1rem 1.4rem;
       margin: 1.75rem 0;
       font-style: italic;
-      color: #475569;
+      color: #4b5563;
     }
-    .content hr { border: none; border-top: 1.5px solid var(--border); margin: 2rem 0; }
-    .content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
-    .content th { background: var(--purple-light); color: var(--purple); font-family: 'Poppins', sans-serif; font-weight: 700; padding: 0.6rem 1rem; text-align: left; }
-    .content td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); color: #334155; }
 
-    /* ── CTA BOX ── */
-    .cta-box {
-      background: linear-gradient(135deg, #1a0533 0%, #2d1060 100%);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      margin: 3.5rem 0 0;
+    .content hr {
+      border: none;
+      border-top: 1.5px solid var(--gl-border);
+      margin: 2.25rem 0;
     }
-    .cta-box h3 { font-family: 'Poppins', sans-serif; font-size: 1.3rem; color: white; margin-bottom: 0.6rem; }
-    .cta-box p { color: rgba(255,255,255,.6); font-size: 0.92rem; margin-bottom: 1.5rem; }
+
+    /* mention footer article (italique fin) */
+    .content p em:only-child {
+      font-size: 0.82rem;
+      color: #9ca3af;
+      font-style: italic;
+    }
+
+    /* ── FAQ ─────────────────────────────────────────────────────────────────── */
+    .faq-section {
+      margin: 3rem 0 0.5rem;
+    }
+
+    .faq-section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--gl-violet);
+      padding-bottom: 0.4rem;
+      border-bottom: 2.5px solid var(--gl-yellow);
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-item {
+      background: var(--gl-gray-light);
+      border: 1px solid var(--gl-border);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-item h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gl-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .faq-item p {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    /* ── CTA BOX ─────────────────────────────────────────────────────────────── */
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--gl-violet-dark) 0%, var(--gl-violet) 100%);
+      border-radius: var(--radius-lg);
+      padding: 2.75rem 2.5rem;
+      text-align: center;
+      margin: 3.5rem 0 0.5rem;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: var(--gl-yellow);
+      border-radius: 50%;
+      opacity: 0.08;
+    }
+
+    .cta-box::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 130px; height: 130px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.05;
+    }
+
+    .cta-box h3 {
+      font-size: 1.35rem;
+      color: white;
+      margin-bottom: 0.65rem;
+      position: relative;
+    }
+
+    .cta-box p {
+      color: rgba(255,255,255,.82);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
     .cta-box a {
       display: inline-block;
-      background: var(--purple);
-      color: white !important;
-      font-family: 'Poppins', sans-serif;
+      background: var(--gl-yellow);
+      color: var(--gl-dark) !important;
+      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 0.92rem;
-      padding: 0.8rem 2rem;
-      border-radius: 8px;
-      text-decoration: none !important;
-      transition: background .15s, transform .1s;
+      font-size: 1rem;
+      padding: 0.85rem 2.25rem;
+      border-radius: var(--radius-sm);
+      position: relative;
+      transition: background .2s, transform .15s;
     }
-    .cta-box a:hover { background: var(--purple-dark); transform: translateY(-1px); }
+    .cta-box a:hover {
+      background: var(--gl-yellow-dark);
+      text-decoration: none !important;
+      transform: translateY(-1px);
+    }
 
-    /* ── FOOTER ── */
+    /* ── FOOTER ──────────────────────────────────────────────────────────────── */
     .site-footer {
-      background: #0f0a1e;
-      color: rgba(255,255,255,.3);
+      background: var(--gl-dark);
+      color: rgba(255,255,255,.5);
       padding: 1.75rem 5%;
       text-align: center;
-      font-size: 0.76rem;
-      line-height: 2;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      line-height: 1.7;
     }
-    .site-footer a { color: rgba(255,255,255,.45); }
-    .site-footer a:hover { color: #c4b5fd; }
+    .site-footer a { color: var(--gl-yellow); }
+    .site-footer a:hover { text-decoration: underline; }
 
-    @media (max-width: 600px) {
-      .hero { padding: 3.5rem 4% 3rem; }
-      main { padding: 2rem 4% 4rem; }
-      .header-nav .nav-link { display: none; }
-      .card-top { flex-direction: column; align-items: flex-start; }
+    /* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .site-header { padding: 0.875rem 4%; }
+      .hero { padding: 3rem 4% 2.5rem; }
+      main { padding: 2rem 4% 3.5rem; }
+      .post-card { padding: 1.25rem 1.35rem; }
+      .cta-box { padding: 2rem 1.5rem; }
+      .header-nav > a:not(.btn-cta) { display: none; }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
-    <a href={isEn ? '/en' : '/'} class="logo">🌱 <span>Blog Grow Lot</span></a>
+    <div class="header-left">
+      <a href={i18n.blogLink} class="logo">
+        <img src={logoUrl} alt="Grow Lot" width="120" height="36" />
+      </a>
+      <a href={i18n.altLangHref} class="lang-pill">{i18n.altLangLabel}</a>
+    </div>
     <nav class="header-nav">
-      <a href={isEn ? '/en' : '/'} class="nav-link">{isEn ? 'Home' : 'Accueil'}</a>
-      <a href={isEn ? '/' : '/en'} class="lang-btn">{isEn ? '🇫🇷 FR' : '🇬🇧 EN'}</a>
-      <a href="https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=header" target="_blank" class="cta-header">{isEn ? 'Try Grow Lot' : 'Essayer Grow Lot'}</a>
+      <a href={i18n.blogLink}>Blog</a>
+      <a href={signupUrl} target="_blank" rel="noopener" class="btn-cta">{i18n.ctaLabel}</a>
     </nav>
   </header>
 
-  {isHome && heroTitle && (
-    <div class="hero">
-      <span class="hero-eyebrow">{isEn ? '✦ Practical guides' : '✦ Guides pratiques'}</span>
-      <h1 set:html={heroTitle} />
-      <p>{heroSub}</p>
-    </div>
-  )}
-
-  <main>
+  <div class="page-body">
     <slot />
-  </main>
+  </div>
 
   <footer class="site-footer">
-    <p>© {new Date().getFullYear()} <a href="https://app.grow-lot.com">Grow Lot</a> — {isEn ? 'Blog for merchants who retain better.' : 'Blog des commerçants qui fidélisent mieux.'}</p>
-    <p>{isEn ? 'Some links may be affiliate links.' : 'Certains liens peuvent être affiliés.'}</p>
+    <p>© {new Date().getFullYear()} <a href={siteUrl} target="_blank" rel="noopener">Grow Lot</a> — {i18n.footerTagline}</p>
+    <p style="margin-top:0.35rem">{i18n.footerDisclaimer}</p>
   </footer>
 </body>
 </html>
