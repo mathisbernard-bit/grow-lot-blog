@@ -10,16 +10,13 @@ const posts = allPosts
   .filter(post => new Date(post.data.date) <= today)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
-<Base
-  title="Grow Lot Blog — Loyalty & Google Reviews Guides for Local Businesses"
-  description="Practical guides to help restaurant owners and local retailers boost customer loyalty, collect Google reviews, and grow their revenue."
-  lang="en"
->
-  <div class="hero-banner">
-    <h1>Grow your customers'<br/><span>engagement</span> 🌱</h1>
+<Base title="Grow Lot Blog — Loyalty & Google Reviews Guides" description="Practical guides to help restaurant owners and local retailers boost customer loyalty, collect Google reviews, and grow their revenue." lang="en">
+  <div class="hero">
+    <h1>Grow your customers' <em>loyalty</em> 🌱</h1>
     <p>Practical guides, real-world tips and proven strategies to boost loyalty and Google reviews for your business.</p>
   </div>
-  <main>
+  <div class="home-container">
+    <h2>All articles ({posts.length})</h2>
     <div class="articles-grid">
       {posts.map(post => (
         <a href={`/en/blog/${post.slug}`} class="article-card">
@@ -31,5 +28,5 @@ const posts = allPosts
         </a>
       ))}
     </div>
-  </main>
+  </div>
 </Base>
