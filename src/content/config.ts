@@ -8,7 +8,7 @@ const blog = defineCollection({
     date: z.string(),
     category: z.string(),
     author: z.string().default("Équipe Grow Lot"),
-    lang: z.string().optional().default("fr"),
+    lang: z.enum(["fr", "en"]).default("fr"),
     image: z.string().optional(),
   }),
 });
