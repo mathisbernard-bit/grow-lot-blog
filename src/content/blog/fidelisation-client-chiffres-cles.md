@@ -4,7 +4,6 @@ description: "Coût d'acquisition, taux de rétention, valeur vie client : les d
 date: "2026-04-30"
 category: "Stratégie"
 author: "Équipe Grow Lot"
-lang: "fr"
 ---
 
 La fidélisation, c'est souvent perçu comme un "nice to have" — quelque chose qu'on fait quand on a le temps. Ces 7 chiffres devraient changer votre perspective.
@@ -52,7 +51,7 @@ La fidélisation n'est pas une dépense — c'est un investissement avec un ROI 
 
 C'est exactement ce que Grow Lot permet de mettre en place, sans compétences techniques, en moins d'une heure.
 
-[Calculer votre ROI fidélisation →](https://go.grow-lot.com/cenvFVu)
+[Calculer votre ROI fidélisation →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=cta
 
 ---
 
