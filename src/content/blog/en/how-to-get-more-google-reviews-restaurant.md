@@ -82,7 +82,7 @@ Doing this manually is time-consuming. Restaurant owners who collect the most re
 
 Solutions available in France and Europe:
 
-- **Grow Lot** — loyalty tool with a spin-the-wheel game + automated review collection + negative review filter. Particularly effective for brick-and-mortar businesses with high foot traffic. Users report an average +50% scan-to-review conversion rate. [Try Grow Lot →](https://taap.it/RYNFv38)
+- **Grow Lot** — loyalty tool with a spin-the-wheel game + automated review collection + negative review filter. Particularly effective for brick-and-mortar businesses with high foot traffic. Users report an average +50% scan-to-review conversion rate. [Try Grow Lot →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=decouvrir)
 - **HeyPongo** — premium solution with a physical tablet, better suited for large chains
 - **Riwil** — low-cost option without advanced automation
 
