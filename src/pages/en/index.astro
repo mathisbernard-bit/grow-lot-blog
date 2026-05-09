@@ -13,32 +13,28 @@ const posts = allPosts
   title="Grow Lot Blog — Loyalty guides for merchants"
   description="Practical guides to boost your customer loyalty and Google reviews. Tips for merchants and restaurant owners."
   lang="en"
+  isHome={true}
+  heroTitle="The blog for merchants who <em>retain better</em> 🌱"
+  heroSub="Strategies, tips and tools to boost your customer loyalty and Google reviews."
 >
-  <div class="hero">
-    <span class="hero-eyebrow">✦ Practical guides</span>
-    <h1>The blog for merchants who<br/><em>retain better</em> 🌱</h1>
-    <p>Strategies, tips and tools to boost your customer loyalty and Google reviews.</p>
+  <div class="section-header">
+    <h2>All articles</h2>
+    <div class="section-line"></div>
+    <span class="section-count">{posts.length} articles</span>
   </div>
-  <main>
-    <div class="section-header">
-      <h2>All articles</h2>
-      <div class="section-line"></div>
-      <span class="section-count">{posts.length} articles</span>
-    </div>
-    <div class="articles-grid">
-      {posts.map(post => (
-        <a href={`/en/blog/${post.slug}`} class="article-card">
-          <div class="card-top">
-            <span class="category-badge">{post.data.category}</span>
-            <span class="article-date">{new Date(post.data.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-          </div>
-          <h2>{post.data.title}</h2>
-          <p>{post.data.description}</p>
-          <div class="card-footer">
-            <span class="read-more">Read article →</span>
-          </div>
-        </a>
-      ))}
-    </div>
-  </main>
+  <div class="articles-grid">
+    {posts.map(post => (
+      <a href={`/en/blog/${post.slug}`} class="article-card">
+        <div class="card-top">
+          <span class="category-badge">{post.data.category}</span>
+          <span class="article-date">{new Date(post.data.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+        </div>
+        <h2>{post.data.title}</h2>
+        <p>{post.data.description}</p>
+        <div class="card-footer">
+          <span class="read-more">Read article →</span>
+        </div>
+      </a>
+    ))}
+  </div>
 </Base>
