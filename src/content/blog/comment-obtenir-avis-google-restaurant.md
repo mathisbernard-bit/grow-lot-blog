@@ -75,4 +75,4 @@ La régularité fait tout. 5 avis par semaine toute l'année valent infiniment p
 
 ---
 
-*Grow Lot est utilisé par plus de 100 commerçants en France pour automatiser leur collecte d'avis Google. [Découvrir Grow Lot →](https://taap.it/RYNFv38)*
+*Grow Lot est utilisé par plus de 100 commerçants en France pour automatiser leur collecte d'avis Google. [Découvrir Grow Lot →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=decouvrir)*
