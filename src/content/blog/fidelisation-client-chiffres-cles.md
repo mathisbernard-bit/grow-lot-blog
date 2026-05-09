@@ -4,6 +4,7 @@ description: "Coût d'acquisition, taux de rétention, valeur vie client : les d
 date: "2026-04-30"
 category: "Stratégie"
 author: "Équipe Grow Lot"
+lang: "fr"
 ---
 
 La fidélisation, c'est souvent perçu comme un "nice to have" — quelque chose qu'on fait quand on a le temps. Ces 7 chiffres devraient changer votre perspective.
