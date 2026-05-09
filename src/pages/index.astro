@@ -6,39 +6,35 @@ const today = new Date();
 today.setHours(23, 59, 59, 999);
 const allPosts = await getCollection('blog');
 const posts = allPosts
-  .filter(p => p.data.lang === 'fr' && new Date(p.data.date) <= today)
+  .filter(p => (p.data.lang ?? 'fr') === 'fr' && new Date(p.data.date) <= today)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 <Base
   title="Blog Grow Lot — Guides fidélisation pour commerçants"
   description="Guides pratiques pour booster votre fidélisation client et vos avis Google. Conseils pour commerçants et restaurateurs."
   lang="fr"
+  isHome={true}
+  heroTitle="Le blog des commerçants qui <em>fidélisent mieux</em> 🌱"
+  heroSub="Stratégies, conseils et outils pour booster votre fidélisation client et vos avis Google."
 >
-  <div class="hero">
-    <span class="hero-eyebrow">✦ Guides pratiques</span>
-    <h1>Le blog des commerçants qui<br/><em>fidélisent mieux</em> 🌱</h1>
-    <p>Stratégies, conseils et outils pour booster votre fidélisation client et vos avis Google.</p>
+  <div class="section-header">
+    <h2>Tous les articles</h2>
+    <div class="section-line"></div>
+    <span class="section-count">{posts.length} articles</span>
   </div>
-  <main>
-    <div class="section-header">
-      <h2>Tous les articles</h2>
-      <div class="section-line"></div>
-      <span class="section-count">{posts.length} articles</span>
-    </div>
-    <div class="articles-grid">
-      {posts.map(post => (
-        <a href={`/blog/${post.slug}`} class="article-card">
-          <div class="card-top">
-            <span class="category-badge">{post.data.category}</span>
-            <span class="article-date">{new Date(post.data.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-          </div>
-          <h2>{post.data.title}</h2>
-          <p>{post.data.description}</p>
-          <div class="card-footer">
-            <span class="read-more">Lire l'article →</span>
-          </div>
-        </a>
-      ))}
-    </div>
-  </main>
+  <div class="articles-grid">
+    {posts.map(post => (
+      <a href={`/blog/${post.slug}`} class="article-card">
+        <div class="card-top">
+          <span class="category-badge">{post.data.category}</span>
+          <span class="article-date">{new Date(post.data.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+        </div>
+        <h2>{post.data.title}</h2>
+        <p>{post.data.description}</p>
+        <div class="card-footer">
+          <span class="read-more">Lire l'article →</span>
+        </div>
+      </a>
+    ))}
+  </div>
 </Base>
