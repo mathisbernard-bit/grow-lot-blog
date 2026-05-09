@@ -4,6 +4,7 @@ description: "Guide complet du SEO local pour restaurants : optimiser votre fich
 date: "2026-05-12"
 category: "SEO Local"
 author: "Équipe Grow Lot"
+lang: "fr"
 ---
 
 Google Maps est devenu le nouvel annuaire des restaurateurs. Avant de réserver une table, 72% des clients cherchent d'abord sur Google — pas sur les guides gastronomiques, pas sur les comparateurs, sur Google Maps.
