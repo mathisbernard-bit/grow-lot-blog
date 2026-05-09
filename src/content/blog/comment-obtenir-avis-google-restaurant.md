@@ -4,6 +4,7 @@ description: "Méthode concrète pour générer des avis Google réguliers, filt
 date: "2026-04-22"
 category: "Avis Google"
 author: "Équipe Grow Lot"
+lang: "fr"
 faqs:
   - q: "Comment obtenir des avis Google rapidement ?"
     a: "La méthode la plus efficace est de demander un avis juste après un moment de satisfaction, via un QR code ou un SMS automatique avec lien direct vers votre fiche Google. Les outils comme Grow Lot permettent d'atteindre 50% de taux de conversion."
