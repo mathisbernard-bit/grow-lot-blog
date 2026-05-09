@@ -8,10 +8,7 @@ export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts
     .filter(post => new Date(post.data.date) <= today)
-    .map(post => ({
-      params: { slug: post.slug },
-      props: { post },
-    }));
+    .map(post => ({ params: { slug: post.slug }, props: { post } }));
 }
 
 const { post } = Astro.props;
@@ -26,7 +23,7 @@ const faqs = post.data.faqs || [];
   author={post.data.author}
   faqs={faqs}
 >
-  <main>
+  <div class="article-container">
     <article>
       <div class="article-header">
         <nav class="breadcrumb" aria-label="Fil d'Ariane">
@@ -41,11 +38,9 @@ const faqs = post.data.faqs || [];
           Par {post.data.author} &middot; {new Date(post.data.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
         </p>
       </div>
-
       <div class="content">
         <Content />
       </div>
-
       {faqs.length > 0 && (
         <div class="faq-section">
           <h2>Questions fréquentes</h2>
@@ -57,12 +52,11 @@ const faqs = post.data.faqs || [];
           ))}
         </div>
       )}
-
       <div class="cta-box">
         <h3>Prêt à fidéliser vos clients avec Grow Lot ?</h3>
         <p>Roue de la fortune, collecte d'avis automatisée, filtre anti-avis négatifs — tout en un, à partir de 49€/mois.</p>
         <a href="https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=cta" target="_blank">Démarrer gratuitement →</a>
       </div>
     </article>
-  </main>
+  </div>
 </Base>
