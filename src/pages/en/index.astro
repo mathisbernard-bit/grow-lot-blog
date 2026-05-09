@@ -4,37 +4,32 @@ import { getCollection } from 'astro:content';
 
 const today = new Date();
 today.setHours(23, 59, 59, 999);
-const allPosts = await getCollection('blog');
+
+const allPosts = await getCollection('blog_en');
 const posts = allPosts
-  .filter(p => p.data.lang === 'en' && new Date(p.data.date) <= today)
+  .filter(post => new Date(post.data.date) <= today)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 <Base
-  title="Grow Lot Blog — Loyalty guides for merchants"
-  description="Practical guides to boost your customer loyalty and Google reviews. Tips for merchants and restaurant owners."
+  title="Grow Lot Blog — Loyalty & Google Reviews Guides for Local Businesses"
+  description="Practical guides to help restaurant owners and local retailers boost customer loyalty, collect Google reviews, and grow their revenue."
   lang="en"
-  isHome={true}
-  heroTitle="The blog for merchants who <em>retain better</em> 🌱"
-  heroSub="Strategies, tips and tools to boost your customer loyalty and Google reviews."
 >
-  <div class="section-header">
-    <h2>All articles</h2>
-    <div class="section-line"></div>
-    <span class="section-count">{posts.length} articles</span>
+  <div class="hero-banner">
+    <h1>Grow your customers'<br/><span>engagement</span> 🌱</h1>
+    <p>Practical guides, real-world tips and proven strategies to boost loyalty and Google reviews for your business.</p>
   </div>
-  <div class="articles-grid">
-    {posts.map(post => (
-      <a href={`/en/blog/${post.slug}`} class="article-card">
-        <div class="card-top">
+  <main>
+    <div class="articles-grid">
+      {posts.map(post => (
+        <a href={`/en/blog/${post.slug}`} class="article-card">
           <span class="category-badge">{post.data.category}</span>
-          <span class="article-date">{new Date(post.data.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
-        </div>
-        <h2>{post.data.title}</h2>
-        <p>{post.data.description}</p>
-        <div class="card-footer">
+          <h2>{post.data.title}</h2>
+          <p class="desc">{post.data.description}</p>
           <span class="read-more">Read article →</span>
-        </div>
-      </a>
-    ))}
-  </div>
+          <p class="article-date">{new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+        </a>
+      ))}
+    </div>
+  </main>
 </Base>
