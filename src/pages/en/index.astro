@@ -4,27 +4,41 @@ import { getCollection } from 'astro:content';
 
 const today = new Date();
 today.setHours(23, 59, 59, 999);
-
 const allPosts = await getCollection('blog');
 const posts = allPosts
-  .filter(post => (post.data.lang ?? 'fr') === 'en' && new Date(post.data.date) <= today)
+  .filter(p => p.data.lang === 'en' && new Date(p.data.date) <= today)
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
-<Base title="Grow Lot Blog — Loyalty guides for merchants" description="Practical guides, tips and strategies to boost your customer loyalty and Google reviews." lang="en">
+<Base
+  title="Grow Lot Blog — Loyalty guides for merchants"
+  description="Practical guides to boost your customer loyalty and Google reviews. Tips for merchants and restaurant owners."
+  lang="en"
+>
   <div class="hero">
-    <h1>The blog for merchants who retain better 🌱</h1>
-    <p>Practical guides, advice and strategies to boost your customer loyalty and Google reviews.</p>
+    <span class="hero-eyebrow">✦ Practical guides</span>
+    <h1>The blog for merchants who<br/><em>retain better</em> 🌱</h1>
+    <p>Strategies, tips and tools to boost your customer loyalty and Google reviews.</p>
   </div>
-
-  <div class="articles-grid">
-    {posts.map(post => (
-      <a href={`/en/blog/${post.slug.replace('en/', '')}`} class="article-card" style="text-decoration:none;color:inherit;">
-        <span class="category-badge">{post.data.category}</span>
-        <h2>{post.data.title}</h2>
-        <p>{post.data.description}</p>
-        <span class="read-more">Read article →</span>
-        <p class="article-date">{new Date(post.data.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-      </a>
-    ))}
-  </div>
+  <main>
+    <div class="section-header">
+      <h2>All articles</h2>
+      <div class="section-line"></div>
+      <span class="section-count">{posts.length} articles</span>
+    </div>
+    <div class="articles-grid">
+      {posts.map(post => (
+        <a href={`/en/blog/${post.slug}`} class="article-card">
+          <div class="card-top">
+            <span class="category-badge">{post.data.category}</span>
+            <span class="article-date">{new Date(post.data.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+          </div>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+          <div class="card-footer">
+            <span class="read-more">Read article →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
 </Base>
