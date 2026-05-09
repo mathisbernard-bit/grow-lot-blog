@@ -70,7 +70,7 @@ Grow Lot integrates all of this in a single tool designed for physical businesse
 
 At €49/month (launch offer), it pays for itself from the first reactivated customer.
 
-[See how it works →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=article-en)
+[See how it works →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=cta)
 
 ---
 
