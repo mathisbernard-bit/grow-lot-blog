@@ -4,6 +4,7 @@ description: "Découvrez les 5 piliers d'une stratégie de fidélisation efficac
 date: "2026-05-02"
 category: "Fidélisation"
 author: "Équipe Grow Lot"
+lang: "fr"
 ---
 
 On parle beaucoup de fidélisation en 2026, mais la plupart des commerçants se trompent sur ce qui marche vraiment. Ils mettent en place des gadgets sans stratégie — une roue de la fortune ici, un email de relance là — et s'étonnent que ça ne change rien.
