@@ -5,15 +5,14 @@ import { getCollection } from 'astro:content';
 export async function getStaticPaths() {
   const today = new Date();
   today.setHours(23, 59, 59, 999);
-  const posts = await getCollection('blog_en');
+  const posts = await getCollection('blog');
   return posts
-    .filter(post => new Date(post.data.date) <= today)
+    .filter(p => p.data.lang === 'en' && new Date(p.data.date) <= today)
     .map(post => ({ params: { slug: post.slug }, props: { post } }));
 }
 
 const { post } = Astro.props;
 const { Content } = await post.render();
-const faqs = post.data.faqs || [];
 ---
 <Base
   title={post.data.title}
@@ -21,45 +20,29 @@ const faqs = post.data.faqs || [];
   date={post.data.date}
   category={post.data.category}
   author={post.data.author}
-  faqs={faqs}
   lang="en"
 >
   <main>
     <article>
       <header class="article-header">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/en">Grow Lot Blog</a>
-          <span class="breadcrumb-sep">›</span>
-          <span class="badge">{post.data.category}</span>
+        <nav class="breadcrumb">
+          <a href="/en">Home</a>
           <span class="breadcrumb-sep">›</span>
           <span>{post.data.title}</span>
         </nav>
+        <span class="category-badge">{post.data.category}</span>
         <h1>{post.data.title}</h1>
         <p class="article-meta">
-          By {post.data.author} &middot; {new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+          By {post.data.author} · {new Date(post.data.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
         </p>
       </header>
-
       <div class="content">
         <Content />
       </div>
-
-      {faqs.length > 0 && (
-        <section class="faq-section" aria-label="Frequently Asked Questions">
-          <h2>Frequently Asked Questions</h2>
-          {faqs.map((faq: {q: string, a: string}) => (
-            <div class="faq-item">
-              <h3>{faq.q}</h3>
-              <p>{faq.a}</p>
-            </div>
-          ))}
-        </section>
-      )}
-
       <div class="cta-box">
-        <h3>Ready to grow customer loyalty with Grow Lot?</h3>
-        <p>Lucky wheel, automated Google review collection, negative review filter — all in one, from €49/month.</p>
-        <a href="https://go.grow-lot.com/cenvFVu" target="_blank" rel="noopener">Start for free →</a>
+        <h3>Ready to try Grow Lot?</h3>
+        <p>Spin-the-wheel, negative review filter, marketing automation — from €49/month for life.</p>
+        <a href="https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=article-cta-en" target="_blank">Try Grow Lot →</a>
       </div>
     </article>
   </main>
