@@ -58,7 +58,7 @@ Loyalty isn't an expense — it's an investment with measurable ROI. Business ow
 
 That's exactly what Grow Lot lets you set up, without technical skills, in under an hour.
 
-[Calculate your loyalty ROI →](https://go.grow-lot.com/cenvFVu)
+[Calculate your loyalty ROI →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=cta
 
 ---
 
