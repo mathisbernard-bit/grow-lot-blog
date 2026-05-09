@@ -4,6 +4,7 @@ description: "Carte de fidélité, application mobile, gamification : on compare
 date: "2026-04-26"
 category: "Fidélisation"
 author: "Équipe Grow Lot"
+lang: "fr"
 ---
 
 Un client fidèle dépense en moyenne 67% de plus qu'un nouveau client. Pourtant, la plupart des programmes de fidélité en restauration sont abandonnés après quelques semaines — par les clients comme par les équipes.
