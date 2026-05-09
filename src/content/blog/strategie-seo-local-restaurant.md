@@ -4,7 +4,6 @@ description: "Guide complet du SEO local pour restaurants : optimiser votre fich
 date: "2026-05-12"
 category: "SEO Local"
 author: "Équipe Grow Lot"
-lang: "fr"
 ---
 
 Google Maps est devenu le nouvel annuaire des restaurateurs. Avant de réserver une table, 72% des clients cherchent d'abord sur Google — pas sur les guides gastronomiques, pas sur les comparateurs, sur Google Maps.
@@ -138,7 +137,7 @@ Faire ça manuellement est lourd. Les restaurants qui rankent bien utilisent des
 
 [Grow Lot](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=decouvrir) intègre tout ça : filtre anti-avis négatifs, roue de la fortune pour gamifier la demande d'avis, et suivi automatisé de votre progression.
 
-Essayer gratuitement : [https://go.grow-lot.com/cenvFVu](https://go.grow-lot.com/cenvFVu)
+Essayer gratuitement : [https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=cta
 
 ---
 
