@@ -135,7 +135,7 @@ Faire ça manuellement est lourd. Les restaurants qui rankent bien utilisent des
 - Envoyer des SMS/QR codes aux clients pour les encourager à laisser un avis
 - Tracker la croissance de leur fiche
 
-[Grow Lot](https://taap.it/RYNFv38) intègre tout ça : filtre anti-avis négatifs, roue de la fortune pour gamifier la demande d'avis, et suivi automatisé de votre progression.
+[Grow Lot](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=decouvrir) intègre tout ça : filtre anti-avis négatifs, roue de la fortune pour gamifier la demande d'avis, et suivi automatisé de votre progression.
 
 Essayer gratuitement : [https://go.grow-lot.com/cenvFVu](https://go.grow-lot.com/cenvFVu)
 
