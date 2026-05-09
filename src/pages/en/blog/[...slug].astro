@@ -8,10 +8,7 @@ export async function getStaticPaths() {
   const posts = await getCollection('blog_en');
   return posts
     .filter(post => new Date(post.data.date) <= today)
-    .map(post => ({
-      params: { slug: post.slug },
-      props: { post },
-    }));
+    .map(post => ({ params: { slug: post.slug }, props: { post } }));
 }
 
 const { post } = Astro.props;
@@ -27,7 +24,7 @@ const faqs = post.data.faqs || [];
   faqs={faqs}
   lang="en"
 >
-  <main>
+  <div class="article-container">
     <article>
       <div class="article-header">
         <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -42,11 +39,9 @@ const faqs = post.data.faqs || [];
           By {post.data.author} &middot; {new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
         </p>
       </div>
-
       <div class="content">
         <Content />
       </div>
-
       {faqs.length > 0 && (
         <div class="faq-section">
           <h2>Frequently Asked Questions</h2>
@@ -58,12 +53,11 @@ const faqs = post.data.faqs || [];
           ))}
         </div>
       )}
-
       <div class="cta-box">
         <h3>Ready to grow customer loyalty with Grow Lot?</h3>
         <p>Lucky wheel, automated Google review collection, negative review filter — all in one, from €49/month.</p>
         <a href="https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=cta" target="_blank">Start for free →</a>
       </div>
     </article>
-  </main>
+  </div>
 </Base>
