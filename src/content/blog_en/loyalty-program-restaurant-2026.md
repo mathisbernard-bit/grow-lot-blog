@@ -8,7 +8,7 @@ faqs:
   - q: "What is the best loyalty program for a restaurant?"
     a: "The most effective programs combine instant rewards (so customers don't have to wait), data collection (email/phone), and automated re-engagement. Gamification tools like lucky wheels outperform traditional stamp cards by 3 to 5x."
   - q: "How much does a restaurant loyalty program cost?"
-    a: "Costs vary widely. Stamp cards are free but yield poor results. Digital solutions like Grow Lot start at €49/month and typically pay for themselves from the first reactivated customer."
+    a: "Costs vary widely. Stamp cards are free but yield poor results. Digital solutions like Grow Lot start at €19/month (Essentiel plan) and typically pay for themselves from the first reactivated customer."
   - q: "How do I measure the ROI of my loyalty program?"
     a: "Track three metrics: return visit rate (% of customers who come back within 30 days), average basket size for loyalty members vs. new customers, and reactivation rate from SMS/email campaigns."
 ---
@@ -66,9 +66,9 @@ Grow Lot integrates all of this in a single tool designed for physical businesse
 - **Automated Google review collection** with negative review filter
 - **Integrated email and SMS contact base**
 - **Automatic re-engagement campaigns** by email and SMS
-- **Physical displays included**: QR codes, roll-ups, table cards
+- **Physical displays included**: personalized counter display, plus 500 flyers with the Performance plan
 
-At €49/month (launch offer), it pays for itself from the first reactivated customer.
+From €19/month (Essentiel plan), it pays for itself from the first reactivated customer.
 
 [See how it works →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=cta)
 

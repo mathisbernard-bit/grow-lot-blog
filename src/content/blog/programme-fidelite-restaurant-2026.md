@@ -59,9 +59,9 @@ Grow Lot intègre tout ça dans un seul outil pensé pour les commerces physique
 - **Collecte d'avis Google automatisée** avec filtre anti-avis négatifs
 - **Base de contacts** email et SMS intégrée
 - **Campagnes de relance** automatiques par email et SMS
-- **Supports physiques inclus** : QR codes, kakémonos, chevalets de table
+- **Supports physiques inclus** : panneau de comptoir personnalisé, et 500 flyers avec l'offre Performance
 
-À 49€/mois (offre de lancement), c'est rentabilisé dès le premier client réactivé.
+À partir de 19 € HT/mois (offre Essentiel), c'est rentabilisé dès le premier client réactivé.
 
 [Voir comment ça marche →](https://app.grow-lot.com?utm_source=growlot-blog&utm_medium=blog&utm_campaign=cta)
 
