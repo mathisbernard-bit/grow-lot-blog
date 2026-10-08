@@ -142,3 +142,5 @@ Essayer gratuitement : [https://app.grow-lot.com?utm_source=growlot-blog&utm_med
 ---
 
 *Cet article est rédigé par l'équipe Grow Lot. Certains liens sont affiliés.*
+
+Un avis authentique vaut plus que dix avis fabriqués : [nous expliquons ici pourquoi acheter des avis Google](/blog/acheter-avis-google-risques) est un délit et ce qui marche vraiment à la place.

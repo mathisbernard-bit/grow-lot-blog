@@ -152,6 +152,20 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"acheter-avis-google-risques.md": {
+	id: "acheter-avis-google-risques.md";
+  slug: "acheter-avis-google-risques";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"carte-fidelite-numerique-wallet.md": {
+	id: "carte-fidelite-numerique-wallet.md";
+  slug: "carte-fidelite-numerique-wallet";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "comment-obtenir-avis-google-restaurant.md": {
 	id: "comment-obtenir-avis-google-restaurant.md";
   slug: "comment-obtenir-avis-google-restaurant";

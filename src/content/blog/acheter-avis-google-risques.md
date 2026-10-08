@@ -12,9 +12,9 @@ faqs:
   - q: "Combien coûtent des faux avis Google ?"
     a: "Les plateformes vendent généralement des packs de 10 à 100 avis 5 étoiles entre 5 et 20 € l'avis, souvent réalisés depuis des comptes étrangers. Mais le coût réel est ailleurs : risques juridiques, suppression des avis par Google, perte de la fiche, et réputation détruite si la supercherie est exposée."
   - q: "Comment obtenir des avis Google rapidement et légalement ?"
-    a: "Le plus efficace est de demander l'avis au bon moment : juste après une expérience positive, pendant que le client est encore dans votre établissement. Un QR code au comptoir associé à un jeu de fidélité génère en moyenne plus de 120 avis Google par mois en restauration, avec un taux de conversion scan vers avis autour de 50 %."
+    a: "Le plus efficace est de demander l'avis au bon moment : juste après une expérience positive, pendant que le client est encore dans votre établissement. Un QR code au comptoir associé à un jeu de fidélité (la récompense rémunère la participation au jeu, l'avis est demandé séparément et sans contrepartie) génère en moyenne plus de 120 avis Google par mois en restauration."
   - q: "Peut-on proposer une récompense en échange d'un avis Google ?"
-    a: "Oui, à condition que la récompense ne soit pas conditionnée à une note positive. Vous pouvez offrir un cadeau à un client qui laisse un avis, mais pas uniquement aux avis 5 étoiles. Les solutions comme Grow Lot vérifient les lots et utilisent un filtre intelligent : les avis 4 et 5 étoiles partent sur Google, les autres restent en interne pour être traités."
+    a: "Non. Les règles de Google interdisent d'offrir une contrepartie (cadeau, remise, bon d'achat) en échange d'un avis, quelle que soit la note. Ce qui est permis : récompenser la participation à un jeu de fidélité, puis inviter séparément, sans contrepartie, les clients à laisser un avis s'ils le souhaitent. La récompense rémunère le jeu, jamais l'avis. Une distinction que Google exige et que la DGCCRF vérifie aussi dans les mentions de transparence."
   - q: "Que faire si mon concurrent achète des avis Google ?"
     a: "Vous pouvez signaler les avis suspects directement depuis la fiche Google (option Signaler l'avis). Google enquête et supprime les avis non conformes. Signalez plutôt que d'imiter : la sanction tombe presque toujours sur celui qui achète, pas sur celui qui dénonce."
   - q: "Pourquoi les faux avis n'augmentent pas mes ventes ?"
@@ -94,11 +94,13 @@ Le meilleur moment pour demander un avis n'est pas « après, par email, quand l
 
 ### Principe 2 : donner une raison de scanner
 
-Un client satisfait n'a pas spontanément envie de passer 3 minutes à écrire un avis. Un jeu de fidélité change la donne : le client scan, joue à une roue de la fortune, gagne un lot garanti — et on lui propose ensuite de laisser son avis depuis cette dynamique positive. Chaque joueur remporte un lot, les gains sont vérifiés et le système est anti-triche : l'expérience reste honnête, ce que Google encourage (récompense laissée contre avis, sans condition de note positive).
+Un client satisfait n'a pas spontanément envie de passer 3 minutes à écrire un avis. Un jeu de fidélité change la donne : le client scan, joue à une roue de la fortune, gagne un lot garanti. Point décisif pour rester conforme : la récompense rémunère la participation au jeu de fidélité, jamais l'avis. L'invitation à laisser un avis Google est formulée séparément, sans contrepartie, et le client reste libre de refuser — c'est exactement ce que demandent les règles de Google, qui interdisent tout avantage accordé en échange d'un avis. Les gains sont vérifiés et le système anti-triche garantit que le jeu reste honnête de son côté, et l'avis volontaire du sien.
 
 ### Principe 3 : filtrer intelligemment
 
-La peur du commerçant n'est pas l'avis 5 étoiles manquant, c'est l'avis 1 étoile public d'un client mécontent. Le filtre intelligent d'avis règle le problème : les avis 4 et 5 étoiles partent sur Google, les autres sont dirigés en interne pour être traités. Ce n'est pas de la censure : c'est le même principe que la carte de visite qu'on donne au client en caisse — on traite les problèmes en privé, on raconte les réussites en public.
+La peur du commerçant n'est pas l'avis 5 étoiles manquant, c'est l'avis 1 étoile public d'un client mécontent. Le réflexe — ne présenter Google qu'aux clients satisfaits — s'appelle le review gating, et Google l'interdit explicitement dans ses directives : une entreprise ne doit ni décourager ni empêcher les avis négatifs, et ne doit pas sélectionner qui est invité à laisser un avis public selon sa satisfaction.
+
+La bonne pratique est celle du service client : offrir au client mécontent un canal interne pour résoudre son problème rapidement, l'inviter comme tous les autres à laisser son avis public, et répondre à chaque avis. Un problème résolu avant publication vaut presque toujours mieux qu'un avis 1 étoile sans réponse — et la démarche reste dans les clous des directives de Google.
 
 ### L'outil : tout regrouper dans un seul système
 
@@ -109,7 +111,7 @@ Le dispositif complet tient en un scan :
 - Un panneau de comptoir personnalisé avec QR code, posé au point de paiement
 - Une roue de la fortune où chaque client gagne un lot (vérification et anti-triche inclus)
 - La collecte automatique du prénom et de l'email du joueur
-- Le filtre intelligent d'avis : 4 et 5 étoiles sur Google, le reste en interne
+- Un canal de résolution interne pour traiter les insatisfactions vite, sans décourager les avis publics
 - La carte de fidélité dans Apple Wallet et Google Wallet du client
 - Les relances email et SMS pour faire revenir les joueurs
 
@@ -119,7 +121,7 @@ Le tout dès 19 € HT/mois (offre Essentiel, panneau de comptoir inclus), et l'
 
 | Critère | Achat d'avis | Collecte organisée (ex. Grow Lot) |
 | --- | --- | --- |
-| Légalité | Délit : jusqu'à 2 ans et 300 000 € d'amende | 100 % conforme (récompense sans condition de note) |
+| Légalité | Délit : jusqu'à 2 ans et 300 000 € d'amende | 100 % conforme (jeu récompensé, avis toujours volontaires) |
 | Risque Google | Suppression, chute de visibilité, suspension de fiche | Aucun : avis authentiques de vrais clients |
 | Durabilité | Avis supprimés en quelques semaines ou mois | Avis durables, actif cumulatif |
 | Coût réel | 5 à 20 € par avis jetable | Dès 19 € HT/mois, participations illimitées |
@@ -134,7 +136,7 @@ La dernière ligne est la plus importante : l'achat d'avis achète une note, la 
 1. Faites l'état des lieux de votre fiche Google : nombre d'avis, note, fréquence de publication. C'est votre point de départ.
 2. Choisissez un dispositif de collecte au comptoir : QR code visible au point de paiement, proposé par votre personnel à chaque transaction satisfaisante.
 3. Ajoutez un mécanisme d'engagement (roue de la fortune, lot garanti) pour transformer la demande en réflexe.
-4. Mettez en place le filtre intelligent pour protéger votre note publique.
+4. Ouvrez un canal de résolution interne pour traiter les insatisfactions vite — sans jamais décourager un avis public.
 5. Répondez à chaque avis, positif comme négatif : la réponse du commerçant est lue par les futurs clients autant que l'avis lui-même.
 
 Un flux régulier d'avis authentiques demande 3 à 6 mois pour produire ses pleins effets sur le classement local. Commencé aujourd'hui, il vous place devant vos concurrents au moment où ils décident — souvent trop tard — de réagir.
@@ -143,6 +145,11 @@ Un flux régulier d'avis authentiques demande 3 à 6 mois pour produire ses plei
 
 Acheter des avis Google, c'est payer pour s'exposer : délit pénal, suspension probable de la fiche, et conversion détruite par la méfiance des lecteurs. La stratégie fonctionne pour les vendeurs d'avis, jamais pour les commerçants qui les commandent.
 
-La voie légale est aujourd'hui la plus efficace : demander l'avis au bon moment, récompenser le geste sans condition de note, filtrer intelligemment, et transformer chaque avis en relation durable. C'est exactement le métier de Grow Lot — avec un panneau de comptoir personnalisé, une roue de la fortune anti-triche, un filtre d'avis intelligent et des relances marketing intégrées dès 19 € HT/mois.
+La voie légale est aujourd'hui la plus efficace : demander l'avis au bon moment, récompenser la participation au jeu de fidélité (jamais l'avis), traiter les insatisfactions vite, et transformer chaque client en relation durable. C'est exactement le métier de Grow Lot — avec un panneau de comptoir personnalisé, une roue de la fortune anti-triche, un canal de résolution interne et des relances marketing intégrées dès 19 € HT/mois.
 
 Vos vrais clients ont déjà vos avis 5 étoiles en poche. Demandez-les au lieu de les fabriquer : https://go.grow-lot.com/cenvFVu
+
+## À lire aussi
+
+- [Gestion des avis négatifs : transformer les critiques en opportunités](/blog/gerer-avis-negatifs-fidelisation)
+- [Comment obtenir plus d'avis Google pour votre restaurant (méthode complète)](/blog/comment-obtenir-avis-google-restaurant)

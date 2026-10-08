@@ -133,3 +133,5 @@ La carte de fidélité numérique n'est pas une tendance, c'est un basculement. 
 Avec Grow Lot, la carte de fidélité Apple et Google Wallet est incluse dès 19 € HT/mois, avec panneau de comptoir personnalisé et tableau de bord temps réel. L'offre Performance à 59 € HT/mois ajoute les relances email, SMS et WhatsApp pour transformer chaque visite en relation suivie.
 
 Prêt à lancer votre carte de fidélité numérique ? Découvrez Grow Lot : https://go.grow-lot.com/cenvFVu
+
+Si vous cherchez un raccourci pour vos avis, sachez qu'[acheter des avis Google](/blog/acheter-avis-google-risques) est un délit. La collecte organisée est plus rapide, légale et sans risque.
