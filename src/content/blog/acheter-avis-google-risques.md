@@ -14,7 +14,7 @@ faqs:
   - q: "Comment obtenir des avis Google rapidement et légalement ?"
     a: "Le plus efficace est de demander l'avis au bon moment : juste après une expérience positive, pendant que le client est encore dans votre établissement. Un QR code au comptoir associé à un jeu de fidélité (la récompense rémunère la participation au jeu, l'avis est demandé séparément et sans contrepartie) génère en moyenne plus de 120 avis Google par mois en restauration."
   - q: "Peut-on proposer une récompense en échange d'un avis Google ?"
-    a: "Non. Les règles de Google interdisent d'offrir une contrepartie (cadeau, remise, bon d'achat) en échange d'un avis, quelle que soit la note. Ce qui est permis : récompenser la participation à un jeu de fidélité, puis inviter séparément, sans contrepartie, les clients à laisser un avis s'ils le souhaitent. La récompense rémunère le jeu, jamais l'avis. Une distinction que Google exige et que la DGCCRF vérifie aussi dans les mentions de transparence."
+    a: "Non. Les règles de Google interdisent d'offrir une contrepartie (cadeau, remise, bon d'achat) en échange d'un avis, quelle que soit la note. Ce qui est permis : récompenser la participation à un jeu de fidélité, puis inviter séparément, sans contrepartie, les clients à laisser un avis s'ils le souhaitent. La récompense rémunère le jeu, jamais l'avis. Une distinction que Google exige et que la DGCCRF vérifie aussi dans les mentions de transparence. Et un avis révélé comme « incité » affiche désormais un libellé dédié sur Google qui neutralise son effet."
   - q: "Que faire si mon concurrent achète des avis Google ?"
     a: "Vous pouvez signaler les avis suspects directement depuis la fiche Google (option Signaler l'avis). Google enquête et supprime les avis non conformes. Signalez plutôt que d'imiter : la sanction tombe presque toujours sur celui qui achète, pas sur celui qui dénonce."
   - q: "Pourquoi les faux avis n'augmentent pas mes ventes ?"
@@ -36,7 +36,7 @@ Face à ce constat, deux marchés se sont développés en parallèle :
 - Celui, légal, des solutions de collecte organisée (QR code au comptoir, relances automatiques, fidélité)
 - Celui, illégal, des plateformes qui vendent des avis fabriqués de toutes pièces
 
-Le premier construit un actif durable. Le second s'apparente à un crédit à court terme avec un taux d'intérêt exorbitant : c'est le premier qui paie le moins cher.
+Le premier construit un actif durable. Le second s'apparente à un crédit à court terme à taux exorbitant : la vraie facture arrive toujours, avec les intérêts.
 
 ## Comment fonctionne le marché des faux avis
 
@@ -57,7 +57,7 @@ Les sanctions encourues :
 - Jusqu'à 2 ans d'emprisonnement
 - Jusqu'à 300 000 € d'amende, montant pouvant être porté à 10 % du chiffre d'affaires annuel
 
-La charge de la preuve est simplifiée : une salve d'avis postés depuis des comptes sans lien avec votre zone géographique, publiés à des heures incompatibles avec vos horaires d'ouverture, suffit à établir la suspicion. Les plateformes et les fiches incriminées sont publiquement signalées, et la réputation d'établissement « qui achète ses avis » se retourne contre lui à vitesse grand V sur les réseaux locaux.
+La charge de la preuve est simplifiée : une salve d'avis postés depuis des comptes sans lien avec votre zone géographique, publiés à des heures incompatibles avec vos horaires d'ouverture, suffit à établir la suspicion. Depuis 2023, la DGCCRF peut publiquement nommer les entreprises sanctionnées — l'équivalent judiciaire d'un avis 1 étoile durable. Pour un commerce local, la réputation d'établissement « qui achète ses avis » se retourne contre lui à vitesse grand V sur les réseaux locaux.
 
 ## Ce que fait Google quand il détecte les avis achetés
 
@@ -72,6 +72,8 @@ Les conséquences concrètes, par ordre de gravité :
 - Chute du classement dans le pack local, la sanction la plus coûteuse
 - Suspension de la fiche Google Business, qui devient invisible dans Maps et la recherche locale : pour un commerce physique, c'est l'équivalent d'une fermeture temporaire
 
+Dernier signe fort : Google affiche désormais un libellé « Avis incité » sur les avis dont l'auteur signale une contrepartie. La transparence tue l'effet recherché : un avis étiqueté comme rémunéré ne persuade plus personne. Acheter ou récompenser des avis est doublement perdant — interdit si c'est caché, inutile si c'est affiché.
+
 Enfin, Google propose à chacun un bouton « Signaler un avis » sur chaque fiche. Vos concurrents locaux, les associations de consommateurs et les clients suspicieux l'utilisent — et les dénonciations aboutissent régulièrement.
 
 ## Le vrai problème : les faux avis ne vendent pas
@@ -80,7 +82,9 @@ Même sans sanction, l'achat d'avis échoue sur son propre objectif : générer 
 
 Les consommateurs de 2026 sont devenus des lecteurs d'avis expérimentés. Ils trient par date, lisent les avis mitigés, comparent les textes, vérifient la cohérence entre le profil du contributeur et votre établissement. Une fiche affichant 200 avis 5 étoiles sans exception, rédigés dans un français approximatif, publiés depuis des comptes sans photo et sans autre contribution, déclenche exactement l'effet inverse de celui recherché : la méfiance.
 
-Un sondage imagé suffit à s'en convaincre : à nombre d'avis égal, quel restaurant entre un restaurant à 4,6 étoiles avec des avis détaillés et variés, et un restaurant à 4,9 étoiles uniformes et sans substance ? La réponse intuitive des consommateurs est unanime.
+Les chiffres le confirment : selon le Local Consumer Review Survey de BrightLocal, 98 % des consommateurs consultent les avis en ligne avant de choisir un commerce local — et 79 % disent avoir lu un faux avis au cours de l'année écoulée. Le consommateur moyen est devenu un détecteur de faux avis entraîné.
+
+À nombre d'avis égal, quel restaurant choisissez-vous entre un 4,6 étoiles avec des avis détaillés et variés, et un 4,9 étoiles uniformes et sans substance ? La réponse est unanime.
 
 La note parfaite n'est pas crédible. La régularité, oui.
 
