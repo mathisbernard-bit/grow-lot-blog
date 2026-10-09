@@ -208,6 +208,20 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"programme-parrainage-client-commercants.md": {
+	id: "programme-parrainage-client-commercants.md";
+  slug: "programme-parrainage-client-commercants";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"repondre-avis-google-commercants.md": {
+	id: "repondre-avis-google-commercants.md";
+  slug: "repondre-avis-google-commercants";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "sms-marketing-restaurant-fidelisation.md": {
 	id: "sms-marketing-restaurant-fidelisation.md";
   slug: "sms-marketing-restaurant-fidelisation";

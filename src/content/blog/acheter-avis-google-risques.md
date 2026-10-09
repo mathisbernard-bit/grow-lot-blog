@@ -155,5 +155,7 @@ La voie légale est aujourd'hui la plus efficace : demander l'avis au bon moment
 
 ## À lire aussi
 
+- [Comment répondre aux avis Google : le guide complet pour commerçants et restaurateurs](/blog/repondre-avis-google-commercants)
+
 - [Gestion des avis négatifs : transformer les critiques en opportunités](/blog/gerer-avis-negatifs-fidelisation)
 - [Comment obtenir plus d'avis Google pour votre restaurant (méthode complète)](/blog/comment-obtenir-avis-google-restaurant)

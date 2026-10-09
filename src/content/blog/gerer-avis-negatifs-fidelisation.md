@@ -167,3 +167,7 @@ Les avis négatifs sont inévitables. Mais comment tu les gères ? C'est ce qui 
 **Prêt à transformer tes critiques en fidélité ?** [Essayer Grow Lot gratuitement](https://go.grow-lot.com/cenvFVu) — et commence à construire un système qui récupère vos clients frustrés avant vos concurrents.
 
 Avant de céder à la tentation, sachez qu'[acheter des avis Google](/blog/acheter-avis-google-risques) est une pratique illégale et contre-productive : notre guide détaille les sanctions encourues et les alternatives légales qui marchent.
+
+## À lire aussi
+
+- [Comment répondre aux avis Google : le guide complet pour commerçants et restaurateurs](/blog/repondre-avis-google-commercants)
