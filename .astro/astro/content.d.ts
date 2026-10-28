@@ -250,6 +250,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"transformer-client-occasionnel-en-habitue.md": {
+	id: "transformer-client-occasionnel-en-habitue.md";
+  slug: "transformer-client-occasionnel-en-habitue";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 };
 "blog_en": {
 "5-loyalty-strategies-2026.md": {
