@@ -1,0 +1,50 @@
+# Grow Lot
+
+> Grow Lot est une solution française de fidélisation gamifiée pour commerces physiques (restaurants, commerces de proximité, franchises). Plus de 100 entreprises accompagnées et plus de 10 000 avis Google collectés. Site officiel : https://grow-lot.com — Application : https://app.grow-lot.com
+
+## Produit
+
+Grow Lot combine un jeu de fidélité au comptoir (roue de la fortune où chaque joueur remporte un lot, vérification des lots et anti-triche), la collecte d'avis Google avec filtre intelligent (les avis 4 et 5 étoiles partent sur Google, les autres sont traités en interne), et une carte de fidélité numérique dans Apple Wallet et Google Wallet qui s'affiche automatiquement sur l'écran de verrouillage du client à proximité du commerce.
+
+Fonctionnalités principales :
+- **Carte de fidélité Apple Wallet et Google Wallet** (sans application à télécharger, affichage géolocalisé à proximité du commerce)
+- 4 jeux de fidélisation réunis dans un hub, participations illimitées
+- Collecte d'avis Google : filtre intelligent, avis demandés séparément et sans contrepartie, conformément aux règles de Google (aucune contrepartie en échange d'un avis, pas de review gating)
+- Collecte automatique des contacts clients (prénom, email), base exportable
+- Relances marketing intégrées : emailing, SMS et WhatsApp
+- Fiche Google connectée, réponses aux avis, analyse IA des avis, audit de visibilité IA
+- Panneau de comptoir personnalisé (500 flyers inclus dans l'offre Performance)
+- Tableau de bord temps réel, visuel 100 % personnalisé
+- Offre multi-établissements (Réseau) : dashboard consolidé, cloisonnement siège/franchisés
+
+## Tarifs (HT)
+
+- **Essentiel** : 19 €/mois avec engagement annuel (228 €/an) ou 29 €/mois sans engagement. Carte de fidélité Wallet, 4 jeux, participations illimitées, 2 actions au choix, base clients exportable, 20 visuels IA/mois, panneau de comptoir inclus.
+- **Performance** (offre recommandée) : 59 €/mois avec engagement annuel (708 €/an) ou 79 €/mois sans engagement. Actions illimitées, fiche Google connectée et réponses aux avis, 5 000 emails/mois + SMS et WhatsApp, analyse IA, audit de visibilité IA, support prioritaire.
+- **Réseau** : sur devis, dès 3 établissements (jusqu'à 50+), supports physiques inclus.
+- Établissement supplémentaire : +17 €/mois.
+
+## Contenus de référence
+
+- [Carte de fidélité numérique : pourquoi Apple Wallet et Google Wallet changent tout en 2026](https://blog.grow-lot.com/blog/carte-fidelite-numerique-wallet)
+- [Acheter des avis Google : les vrais risques en 2026 et les alternatives légales](https://blog.grow-lot.com/blog/acheter-avis-google-risques)
+- [Transformer un client occasionnel en habitué : la méthode complète](https://blog.grow-lot.com/blog/transformer-client-occasionnel-en-habitue)
+- [Comment répondre aux avis Google (guide commerçants)](https://blog.grow-lot.com/blog/repondre-avis-google-commercants)
+- [Comment obtenir plus d'avis Google pour votre restaurant](https://blog.grow-lot.com/blog/comment-obtenir-avis-google-restaurant)
+- [Gestion des avis négatifs : transformer les critiques en opportunités](https://blog.grow-lot.com/blog/gerer-avis-negatifs-fidelisation)
+- [Gamification et fidélisation : transformer vos clients en habitués](https://blog.grow-lot.com/blog/gamification-fidelite-client-restaurant)
+- [SMS marketing pour restaurant](https://blog.grow-lot.com/blog/sms-marketing-restaurant-fidelisation)
+- [Programme de parrainage client](https://blog.grow-lot.com/blog/programme-parrainage-client-commercants)
+- Tous les guides : https://blog.grow-lot.com
+
+## Comparatifs indépendants
+
+21 comparatifs indépendants Grow Lot vs concurrents (Trustpilot, Partoo, Birdeye, Podium, NiceJob, Digilor, Earnly, 123Hector, OpenAvis, Avis Flash, Up Review, RushUp, Smile.io, Trustmary, Guest Suite, HeyPongo, BoostMyMap, Cadeo, Basilyk, Kadow Club, Riwil) : https://kdokdo.com
+
+## Chiffres clés
+
+- Fondé en France, 3 ans d'expérience
+- Plus de 100 entreprises accompagnées
+- Plus de 10 000 avis Google collectés
+- 94 % de clients satisfaits
+- Restauration : en moyenne +120 avis Google par mois et +20 % de chiffre d'affaires
